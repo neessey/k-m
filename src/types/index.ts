@@ -91,7 +91,7 @@ export function getProductAvailability(stock: number): {
   if (stock <= 3) {
     return {
       status: 'limited_stock',
-      label: `Stock limité (${stock} restants)`,
+      label: ` limité `,
       isOutOfStock: false,
       buttonLabel: 'Commander',
     };
