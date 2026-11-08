@@ -179,14 +179,7 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({
                           alt={prod.name}
                           className="w-12 h-12 object-cover border border-[#E8E0D7] bg-[#F1ECE5] shrink-0"
                         />
-                        <div className="min-w-0">
-                          <p className="font-serif text-sm font-medium text-[#29231F] truncate">
-                            {prod.name}
-                          </p>
-                          <span className="text-[10px] text-[#8C8178] font-mono">
-                            ID: {prod.id.slice(0, 14)}
-                          </span>
-                        </div>
+                        
                       </div>
                     </td>
 
@@ -232,13 +225,7 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({
                         >
                           <Plus className="w-3 h-3 text-[#29231F]" />
                         </button>
-                        <button
-                          onClick={() => handleQuickStockChange(prod.id, prod.stockQuantity, 10)}
-                          className="px-1.5 py-0.5 text-[10px] bg-[#F1ECE5] border border-[#E8E0D7] hover:bg-[#E8E0D7] transition-colors cursor-pointer text-[#765343] font-medium"
-                          title="Réapprovisionner +10 unités"
-                        >
-                          +10
-                        </button>
+                        
                       </div>
                     </td>
 
@@ -251,7 +238,7 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({
                         </span>
                       ) : avail.status === 'limited_stock' ? (
                         <span className="text-[11px] font-medium text-amber-800 bg-amber-50 border border-amber-200 px-2 py-0.5">
-                          Stock limité
+                           Limité
                         </span>
                       ) : (
                         <span className="text-[11px] font-medium text-emerald-800 bg-emerald-50 border border-emerald-200 px-2 py-0.5">

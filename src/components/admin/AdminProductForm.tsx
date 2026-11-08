@@ -20,7 +20,7 @@ export const AdminProductForm: React.FC<AdminProductFormProps> = ({
 
   const [name, setName] = useState(initialProduct?.name || '');
   const [color, setColor] = useState(initialProduct?.color || '');
-  const [price, setPrice] = useState<number>(initialProduct?.price || 24000);
+  const [price, setPrice] = useState<number>(initialProduct?.price || 17000);
   // Default stock must strictly be 10 units as requested
   const [stockQuantity, setStockQuantity] = useState<number>(
     initialProduct?.stockQuantity !== undefined ? initialProduct.stockQuantity : 10
@@ -171,7 +171,7 @@ export const AdminProductForm: React.FC<AdminProductFormProps> = ({
                   step="500"
                   value={price}
                   onChange={(e) => setPrice(Number(e.target.value))}
-                  placeholder="ex: 24000"
+                  placeholder="ex: 17000"
                   className="w-full px-3 py-2.5 text-sm font-semibold tabular-nums bg-[#FAF8F4] border border-[#E8E0D7] focus:border-[#765343] focus:outline-none"
                 />
               </div>

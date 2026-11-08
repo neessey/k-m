@@ -63,7 +63,7 @@ export const AdminPreorders: React.FC<AdminPreordersProps> = ({ preorders }) => 
         <table className="w-full text-left text-xs">
           <thead className="bg-[#F1ECE5]/70 border-b border-[#E8E0D7] uppercase tracking-wider text-[11px] text-[#8C8178]">
             <tr>
-              <th className="py-3 px-4">Réf & Date</th>
+              <th className="py-3 px-4">Date</th>
               <th className="py-3 px-4">Cliente & WhatsApp</th>
               <th className="py-3 px-4">Modèle & Teinte demandée</th>
               <th className="py-3 px-4">Prix</th>
@@ -84,9 +84,7 @@ export const AdminPreorders: React.FC<AdminPreordersProps> = ({ preorders }) => 
                   <tr key={pre.id} className="hover:bg-[#FAF8F4]/80 transition-colors">
                     {/* Ref & Date */}
                     <td className="py-3 px-4">
-                      <span className="font-mono font-semibold text-[#29231F] block">
-                        {pre.id}
-                      </span>
+                    
                       <span className="text-[10px] text-[#8C8178]">
                         {new Date(pre.createdAt).toLocaleDateString('fr-FR', {
                           day: 'numeric',
@@ -123,14 +121,7 @@ export const AdminPreorders: React.FC<AdminPreordersProps> = ({ preorders }) => 
                           alt={pre.productNameSnapshot}
                           className="w-10 h-10 object-cover border border-[#E8E0D7] bg-[#F1ECE5] shrink-0"
                         />
-                        <div className="min-w-0">
-                          <p className="font-medium text-[#29231F] truncate">
-                            {pre.productNameSnapshot}
-                          </p>
-                          <span className="text-[11px] text-[#765343] font-medium">
-                            Couleur souhaitée : {pre.productColorSnapshot}
-                          </span>
-                        </div>
+                        
                       </div>
                     </td>
 

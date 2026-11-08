@@ -1,6 +1,14 @@
+
 import React, { useState } from 'react';
-import { Lock, ArrowRight, ShieldCheck, ArrowLeft, KeyRound } from 'lucide-react';
-import { db } from '../../services/db';
+import {
+  Lock,
+  ArrowRight,
+  ArrowLeft,
+} from 'lucide-react';
+import {
+  signInWithEmailAndPassword
+} from 'firebase/auth';
+import { auth } from '../../services/firebase';
 
 interface AdminLoginProps {
   onLoginSuccess: () => void;
@@ -12,33 +20,55 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({
   onBackToShop,
 }) => {
   const [email, setEmail] = useState('admin@kmbeauty.com');
-  const [password, setPassword] = useState('k3b3au7y@dminm');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     setIsLoading(true);
 
-    setTimeout(() => {
-      const ok = db.login(password);
-      setIsLoading(false);
-      if (ok) {
-        onLoginSuccess();
-      } else {
-        setError('Mot de passe incorrect. Utilisez le mot de passe de démonstration : admin');
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      onLoginSuccess();
+    } catch (err: any) {
+      console.error('Erreur de connexion :', err);
+
+      switch (err.code) {
+        case 'auth/invalid-credential':
+        case 'auth/wrong-password':
+        case 'auth/user-not-found':
+          setError('Adresse email ou mot de passe incorrect.');
+          break;
+
+        case 'auth/invalid-email':
+          setError('Adresse email invalide.');
+          break;
+
+        case 'auth/too-many-requests':
+          setError('Trop de tentatives. Réessayez plus tard.');
+          break;
+
+        case 'auth/operation-not-allowed':
+          setError('La connexion par email et mot de passe n’est pas activée dans Firebase.');
+          break;
+
+        default:
+          setError('Impossible de se connecter. Vérifiez votre configuration Firebase.');
       }
-    }, 300);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
     <div className="min-h-screen bg-[#FAF8F4] flex flex-col justify-center items-center p-4 sm:p-6">
       <div className="max-w-md w-full bg-white border border-[#E8E0D7] p-8 sm:p-10 shadow-lg space-y-6">
-        {/* Brand header */}
+
         <div className="text-center space-y-2">
           <span className="text-[10px] uppercase tracking-[0.25em] text-[#765343] font-semibold block">
-            Espace Privé 
+            Espace Privé
           </span>
           <h1 className="font-serif text-3xl text-[#29231F] font-normal">
             K&M beauty
@@ -48,9 +78,6 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({
           </p>
         </div>
 
-       
-
-        {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-xs uppercase tracking-wider text-[#29231F] font-medium mb-1">
@@ -92,13 +119,16 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({
             disabled={isLoading}
             className="w-full py-3.5 px-4 text-xs uppercase tracking-[0.16em] font-medium text-[#FAF8F4] bg-[#29231F] hover:bg-[#765343] transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-xs disabled:opacity-75"
           >
-            <span>{isLoading ? 'Connexion en cours...' : 'Accéder au Dashboard'}</span>
+            <span>
+              {isLoading ? 'Connexion en cours...' : 'Accéder au Dashboard'}
+            </span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </form>
 
         <div className="pt-2 text-center">
           <button
+            type="button"
             onClick={onBackToShop}
             className="text-xs text-[#8C8178] hover:text-[#29231F] transition-colors inline-flex items-center gap-1.5 cursor-pointer"
           >

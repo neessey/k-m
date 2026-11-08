@@ -87,7 +87,7 @@ export const AdminOrders: React.FC<AdminOrdersProps> = ({ orders }) => {
         <table className="w-full text-left text-xs">
           <thead className="bg-[#F1ECE5]/70 border-b border-[#E8E0D7] uppercase tracking-wider text-[11px] text-[#8C8178]">
             <tr>
-              <th className="py-3 px-4">Réf & Date</th>
+              <th className="py-3 px-4"> Date</th>
               <th className="py-3 px-4">Cliente & Contact</th>
               <th className="py-3 px-4">Sac commandé</th>
               <th className="py-3 px-4">Montant</th>
@@ -109,9 +109,7 @@ export const AdminOrders: React.FC<AdminOrdersProps> = ({ orders }) => {
                   <tr key={ord.id} className="hover:bg-[#FAF8F4]/80 transition-colors">
                     {/* Ref & Date */}
                     <td className="py-3 px-4">
-                      <span className="font-mono font-semibold text-[#29231F] block">
-                        {ord.id}
-                      </span>
+                      
                       <span className="text-[10px] text-[#8C8178]">
                         {new Date(ord.createdAt).toLocaleDateString('fr-FR', {
                           day: 'numeric',
@@ -146,14 +144,7 @@ export const AdminOrders: React.FC<AdminOrdersProps> = ({ orders }) => {
                           alt={ord.productNameSnapshot}
                           className="w-10 h-10 object-cover border border-[#E8E0D7] bg-[#F1ECE5] shrink-0"
                         />
-                        <div className="min-w-0">
-                          <p className="font-medium text-[#29231F] truncate">
-                            {ord.productNameSnapshot}
-                          </p>
-                          <span className="text-[11px] text-[#8C8178]">
-                            Couleur : <strong>{ord.productColorSnapshot}</strong> (qté: {ord.quantity})
-                          </span>
-                        </div>
+                       
                       </div>
                     </td>
 
@@ -210,7 +201,7 @@ export const AdminOrders: React.FC<AdminOrdersProps> = ({ orders }) => {
                         <option value="en_attente">En attente</option>
                         <option value="confirmee">Confirmée</option>
                         <option value="finalisee">Finalisée</option>
-                        <option value="annulee">Annulée (restaure le stock)</option>
+                        <option value="annulee">Annulée</option>
                       </select>
                     </td>
                   </tr>
