@@ -12,7 +12,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({
   onBackToShop,
 }) => {
   const [email, setEmail] = useState('admin@kmbeauty.com');
-  const [password, setPassword] = useState('admin');
+  const [password, setPassword] = useState('k3b3au7y@dminm');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
