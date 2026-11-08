@@ -11,8 +11,8 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({
   onLoginSuccess,
   onBackToShop,
 }) => {
-  const [email, setEmail] = useState('admin@kmbeauty.com');
-  const [password, setPassword] = useState('k3b3au7y@dminm');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
