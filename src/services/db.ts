@@ -31,18 +31,7 @@ export const DEFAULT_CONFIG: SellerConfig = {
 
 // ONLY 1 single bag as strictly requested by the user
 export const INITIAL_PRODUCTS: Product[] = [
-  {
-    id: 'prod-classique-camel',
-    name: 'Sac Classique Trapèze',
-    color: 'Camel Fauve',
-    price: 24000,
-    stockQuantity: 10,
-    accessories: ['Bandoulière cuir réglable', 'Fermoir bijou doré', 'Pochon de protection'],
-    imageUrl: '/src/assets/images/bag_camel_curved_tote_1794136129180.jpg',
-    category: 'porte-main',
-    createdAt: '2026-11-01T10:00:00.000Z',
-    updatedAt: '2026-11-01T10:00:00.000Z',
-  },
+
 ];
 
 export const INITIAL_ORDERS: Order[] = [];
