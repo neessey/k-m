@@ -1,0 +1,7 @@
+{
+  "name": "Maison Solène - Maroquinerie",
+  "description": "Boutique en ligne. Découvrez nos produits et commandez directement via WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

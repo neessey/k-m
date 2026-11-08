@@ -1,0 +1,102 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "Un sac de maroquinerie indépendant (une couleur = un produit)",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 150 },
+        "color": { "type": "string", "maxLength": 100 },
+        "price": { "type": "number" },
+        "stockQuantity": { "type": "number" },
+        "description": { "type": "string", "maxLength": 1000 },
+        "accessories": { "type": "array" },
+        "imageUrl": { "type": "string", "maxLength": 500000 },
+        "category": { "type": "string", "maxLength": 50 },
+        "createdAt": { "type": "string", "maxLength": 50 },
+        "updatedAt": { "type": "string", "maxLength": 50 }
+      },
+      "required": ["id", "name", "color", "price", "stockQuantity", "imageUrl"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Une commande passée pour un sac disponible",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "customerFirstName": { "type": "string", "maxLength": 100 },
+        "customerLastName": { "type": "string", "maxLength": 100 },
+        "customerPhone": { "type": "string", "maxLength": 50 },
+        "productId": { "type": "string", "maxLength": 128 },
+        "productNameSnapshot": { "type": "string", "maxLength": 150 },
+        "productColorSnapshot": { "type": "string", "maxLength": 100 },
+        "productImageSnapshot": { "type": "string", "maxLength": 500000 },
+        "quantity": { "type": "number" },
+        "unitPrice": { "type": "number" },
+        "totalPrice": { "type": "number" },
+        "status": { "type": "string", "maxLength": 30 },
+        "stockDeducted": { "type": "boolean" },
+        "createdAt": { "type": "string", "maxLength": 50 },
+        "updatedAt": { "type": "string", "maxLength": 50 },
+        "whatsappUrl": { "type": "string", "maxLength": 2000 }
+      },
+      "required": ["id", "customerFirstName", "customerLastName", "customerPhone", "productId", "quantity", "unitPrice", "status"]
+    },
+    "Preorder": {
+      "title": "Preorder",
+      "description": "Une précommande passée pour un sac épuisé",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "customerFirstName": { "type": "string", "maxLength": 100 },
+        "customerLastName": { "type": "string", "maxLength": 100 },
+        "customerPhone": { "type": "string", "maxLength": 50 },
+        "productId": { "type": "string", "maxLength": 128 },
+        "productNameSnapshot": { "type": "string", "maxLength": 150 },
+        "productColorSnapshot": { "type": "string", "maxLength": 100 },
+        "productImageSnapshot": { "type": "string", "maxLength": 500000 },
+        "quantity": { "type": "number" },
+        "unitPrice": { "type": "number" },
+        "status": { "type": "string", "maxLength": 30 },
+        "createdAt": { "type": "string", "maxLength": 50 },
+        "updatedAt": { "type": "string", "maxLength": 50 },
+        "whatsappUrl": { "type": "string", "maxLength": 2000 }
+      },
+      "required": ["id", "customerFirstName", "customerLastName", "customerPhone", "productId", "quantity", "unitPrice", "status"]
+    },
+    "SellerConfig": {
+      "title": "SellerConfig",
+      "description": "Paramètres généraux de la boutique K&M beauty",
+      "type": "object",
+      "properties": {
+        "shopName": { "type": "string", "maxLength": 100 },
+        "whatsappPhone": { "type": "string", "maxLength": 50 },
+        "displayPhone": { "type": "string", "maxLength": 50 },
+        "city": { "type": "string", "maxLength": 100 },
+        "country": { "type": "string", "maxLength": 100 },
+        "currency": { "type": "string", "maxLength": 20 },
+        "adminEmail": { "type": "string", "maxLength": 100 }
+      },
+      "required": ["shopName", "whatsappPhone", "currency"]
+    }
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Catalogue public des sacs indépendants"
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Commandes passées via la boutique"
+    },
+    "/preorders/{preorderId}": {
+      "schema": "Preorder",
+      "description": "Précommandes passées sur les sacs épuisés"
+    },
+    "/settings/{settingId}": {
+      "schema": "SellerConfig",
+      "description": "Configuration de la boutique K&M beauty"
+    }
+  }
+}
