@@ -21,8 +21,8 @@ const STORAGE_KEYS = {
 
 export const DEFAULT_CONFIG: SellerConfig = {
   shopName: 'K&M beauty',
-  whatsappPhone: '2250708091011',
-  displayPhone: '+225 07 08 09 10 11',
+  whatsappPhone: '2250140586280',
+  displayPhone: '+225 01 40 58 62 80',
   city: 'Abidjan',
   country: "Côte d'Ivoire",
   currency: 'FCFA',

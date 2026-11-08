@@ -206,7 +206,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   required
                   value={formData.telephone}
                   onChange={(e) => setFormData({ ...formData, telephone: e.target.value })}
-                  placeholder="ex: 07 08 09 10 11"
+                  placeholder="ex: 01 40 58 62 80"
                   className={`w-full px-3 py-2.5 text-sm bg-white border ${
                     errors.telephone ? 'border-red-400' : 'border-[#E8E0D7] focus:border-[#765343]'
                   } focus:outline-none`}

@@ -85,7 +85,7 @@ export const AdminSettings: React.FC<AdminSettingsProps> = ({
               required
               value={whatsappPhone}
               onChange={(e) => setWhatsappPhone(e.target.value)}
-              placeholder="ex: 2250708091011 (chiffres sans + ni espaces)"
+              placeholder="ex: 2250140586280 (chiffres sans + ni espaces)"
               className="w-full px-3 py-2 text-sm font-mono bg-[#FAF8F4] border border-[#E8E0D7] focus:border-[#765343] focus:outline-none"
             />
             <Phone className="w-4 h-4 text-[#25D366] absolute right-3 top-2.5 pointer-events-none" />
