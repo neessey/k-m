@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowDown } from 'lucide-react';
-import { HERO_IMAGE } from '../data/products';
+import HERO_IMAGE from '../assets/images/hero.png';
 
 interface HeroProps {
   onDiscoverClick: () => void;
