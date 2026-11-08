@@ -65,12 +65,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
           K&M beauty
         </span>
 
-        <button
-          onClick={onGoToShop}
-          className="text-xs text-[#765343] font-medium hover:underline cursor-pointer"
-        >
-          Boutique
-        </button>
+       
       </div>
 
       {/* Sidebar */}

@@ -28,7 +28,7 @@ export const AdminProductForm: React.FC<AdminProductFormProps> = ({
  
   const [accessoriesInput, setAccessoriesInput] = useState(
     initialProduct?.accessories?.join(', ') ||
-      'Bandoulière amovible, Pochon de protection satiné, Fermoir bijou doré'
+      'Chaines, autocollants, pièces, pompons'
   );
   const [category, setCategory] = useState<'bandouliere' | 'porte-main' | 'cabas' | 'pochette'>(
     initialProduct?.category || 'porte-main'

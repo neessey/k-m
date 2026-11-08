@@ -54,7 +54,7 @@ export const AdminOrders: React.FC<AdminOrdersProps> = ({ orders }) => {
             Commandes reçues ({orders.length})
           </h1>
           <p className="text-xs text-[#8C8178] mt-1">
-            Le stock est <strong>automatiquement décrémenté dès la commande</strong> sur le site. Dès qu'un sac atteint 0 unité, il devient immédiatement <strong>« Épuisé »</strong>.
+            Dès qu'un sac atteint 0 unité, il devient immédiatement <strong>« Épuisé »</strong>.
           </p>
         </div>
 

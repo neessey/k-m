@@ -141,49 +141,7 @@ export const AdminSettings: React.FC<AdminSettingsProps> = ({
         </div>
       </form>
 
-      {/* Database Reset Section */}
-      <div className="bg-white p-6 border border-[#E8E0D7] space-y-3">
-        <div className="flex items-center gap-2 text-[#765343] font-semibold text-xs uppercase tracking-wider">
-          <Database className="w-4 h-4" />
-          <span>Données & Démonstration</span>
-        </div>
-        <p className="text-xs text-[#8C8178] leading-relaxed">
-          Permet de restaurer la boutique avec 1 seul sac initial de référence et de vider les données de test.
-        </p>
-
-        {showResetConfirm ? (
-          <div className="p-3 bg-red-50 border border-red-200 text-xs space-y-2">
-            <p className="text-red-900 font-medium">
-              Confirmez-vous la réinitialisation ? Tous les autres sacs et commandes de test seront supprimés.
-            </p>
-            <div className="flex gap-2">
-              <button
-                type="button"
-                onClick={handleReset}
-                className="px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white font-medium text-[11px] uppercase tracking-wider cursor-pointer"
-              >
-                Confirmer la réinitialisation
-              </button>
-              <button
-                type="button"
-                onClick={() => setShowResetConfirm(false)}
-                className="px-3 py-1.5 border border-stone-300 text-stone-700 text-[11px] uppercase tracking-wider cursor-pointer hover:bg-white"
-              >
-                Annuler
-              </button>
-            </div>
-          </div>
-        ) : (
-          <button
-            type="button"
-            onClick={() => setShowResetConfirm(true)}
-            className="px-4 py-2 text-xs uppercase tracking-wider font-medium border border-[#E8E0D7] hover:border-red-400 hover:text-red-700 hover:bg-red-50 text-[#8C8178] transition-colors flex items-center gap-2 cursor-pointer"
-          >
-            <RefreshCw className={`w-3.5 h-3.5 ${resetSuccess ? 'animate-spin' : ''}`} />
-            <span>{resetSuccess ? 'Base réinitialisée avec 1 sac !' : 'Réinitialiser (1 seul sac)'}</span>
-          </button>
-        )}
-      </div>
+    
     </div>
   );
 };

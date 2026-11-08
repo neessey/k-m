@@ -45,7 +45,7 @@ export const AdminOverview: React.FC<AdminOverviewProps> = ({
             Vue d'ensemble
           </h1>
           <p className="text-xs text-[#8C8178] mt-1">
-            Indicateurs clés de la boutique K&M beauty et alertes de stock en temps réel.
+            Indicateurs clés de la boutique et alertes de stock en temps réel.
           </p>
         </div>
 
